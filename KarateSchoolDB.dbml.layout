@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="KarateSchoolDB">
+  <DataContextMoniker Name="/KarateSchoolDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c0ab8428-d954-4508-ad42-239da9664ba1" absoluteBounds="1.25, 1.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/KarateSchoolDBDataContext/Instructor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a1239fc5-2495-408e-988a-2bc4c960fb17" absoluteBounds="1.2650000000000001, 1.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="635042d7-c506-4722-a69a-07ea2bbbe514" absoluteBounds="4.625, 0.625, 2, 1.9631982421875">
+      <DataClassMoniker Name="/KarateSchoolDBDataContext/Member" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0274af2d-c4e8-42d4-bb7e-e096c3333c8d" absoluteBounds="4.6400000000000006, 1.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3e7cc470-3976-4a41-bfb2-2ce965e4469b" absoluteBounds="3.25, 3.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/KarateSchoolDBDataContext/NetUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ccdc79c7-f542-4591-b8cb-383ef8ffc8d0" absoluteBounds="3.265, 4.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="31beafdf-2140-410a-aee3-70f1761dc0aa" absoluteBounds="6.5, 3.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/KarateSchoolDBDataContext/Section" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5327eab2-2491-4c49-ac54-b53e972c6cbd" absoluteBounds="6.5150000000000006, 3.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.9375 : 3.625); (3.9375 : 2.16429768880208); (3.25 : 2.16429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/KarateSchoolDBDataContext/NetUser/NetUser_Instructor" />
+      <nodes>
+        <classShapeMoniker Id="3e7cc470-3976-4a41-bfb2-2ce965e4469b" />
+        <classShapeMoniker Id="c0ab8428-d954-4508-ad42-239da9664ba1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.9375 : 3.625); (4.9375 : 2.5881982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/KarateSchoolDBDataContext/NetUser/NetUser_Member" />
+      <nodes>
+        <classShapeMoniker Id="3e7cc470-3976-4a41-bfb2-2ce965e4469b" />
+        <classShapeMoniker Id="635042d7-c506-4722-a69a-07ea2bbbe514" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.25 : 4.41429768880208); (5.79166416666667 : 4.41429768880208 : JumpStart); (5.95833083333333 : 4.41429768880208 : JumpEnd); (6.5 : 4.41429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/KarateSchoolDBDataContext/NetUser/NetUser_Section" />
+      <nodes>
+        <classShapeMoniker Id="3e7cc470-3976-4a41-bfb2-2ce965e4469b" />
+        <classShapeMoniker Id="31beafdf-2140-410a-aee3-70f1761dc0aa" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.8749975 : 2.5881982421875); (5.8749975 : 5.36464680989583); (6.5 : 5.36464680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/KarateSchoolDBDataContext/Member/Member_Section" />
+      <nodes>
+        <classShapeMoniker Id="635042d7-c506-4722-a69a-07ea2bbbe514" />
+        <classShapeMoniker Id="31beafdf-2140-410a-aee3-70f1761dc0aa" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

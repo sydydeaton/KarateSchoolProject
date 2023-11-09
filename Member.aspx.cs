@@ -22,38 +22,61 @@ namespace KarateSchoolProject
 
                 // Get the logged-in member's username.
                 string username = User.Identity.Name;
-
+                
                 // Display the member's name.
                 lblMemberName.Text = GetMemberName(username);
 
                 // Load payment data into the GridView.
-                LoadPaymentsData(username);
+                BindData(username);
             }
         }
 
         private string GetMemberName(string username)
         {
-            int  userId= (int)Session["userId"];
-            var member = _dbManager.getUserMember(userId);
+            
+            var member = _dbManager.getUserMember(username);
             return member.MemberFirstName +" "+member.MemberLastName;
         }
 
 
-        private void LoadPaymentsData(string username)
+        private void BindData(string username)
         {
-            DataTable paymentsDataTable = GetPaymentsData(username);
+            DataTable data = GetSectionData(username);
 
-            if (paymentsDataTable.Rows.Count > 0)
+            if (data.Rows.Count > 0)
             {
-                gvPayments.DataSource = paymentsDataTable;
+                gvPayments.DataSource = data;
                 gvPayments.DataBind();
+
+                decimal sumSectionFee = CalculateTotalFeeSum(data, "SectionFee");
+
+                lblTotalFee.Text = $"${sumSectionFee}";
+
             }
+
         }
 
-        private DataTable GetPaymentsData(string username)
+
+        private decimal CalculateTotalFeeSum(DataTable dataTable, string columnName)
         {
-            
-            DataTable dataTable = new DataTable();
+            decimal sum = 0;
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                if (row[columnName] != DBNull.Value)
+                {
+                    sum += Convert.ToDecimal(row[columnName]);
+                }
+            }
+
+            return sum;
+        }
+
+        private DataTable GetSectionData(string username)
+        {
+
+            DataTable dataTable = _dbManager.GetSectionData(username,true);
+
             return dataTable;
         }
     }

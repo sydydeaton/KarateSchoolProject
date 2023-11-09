@@ -23,12 +23,12 @@ namespace KarateSchoolProject
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            var user = dbManager.getUser(username, password);
-            if (user != null)
+            var user = dbManager.getUser(username);
+            if (user != null && user.UserPassword == password)
             {
                 // Successful login: Redirect to a page.
-                Session["userId"] = user.UserID;
-                FormsAuthentication.SetAuthCookie(user.UserName, true);
+                FormsAuthentication.SetAuthCookie(user.UserName, false);
+                
                 if (user.UserType == UserType.Member)
                 {
 

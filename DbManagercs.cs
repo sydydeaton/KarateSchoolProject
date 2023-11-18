@@ -8,9 +8,10 @@ namespace KarateSchoolProject
 {
     public class DbManager
     {
-        public static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\KarateSchool.mdf;Integrated Security=True;Connect Timeout=30";
+        //public static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\KarateSchool.mdf;Integrated Security=True;Connect Timeout=30";
+        public static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\sdeat\Source\Repos\KarateSchoolProject\App_Data\KarateSchool.mdf;Integrated Security=True;Connect Timeout=30";
 
-       
+
         public NetUser getUser(string username)
         {
             using (var _db = new KarateSchoolDBDataContext(connectionString))
